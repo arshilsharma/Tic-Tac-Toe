@@ -25,6 +25,28 @@ void run(){
     goto again;
 }
 
+int check(char sym[9],char ch,int count){
+    int i;
+    for(i = 0;i<=6; i+=3)//it's for row
+        if(sym[i] == ch && sym[i+1]==ch&&sym[i+2]==ch){
+            printf("the Winner is : %c",ch);return 1;
+        }
+    for(i = 0;i<3; i++)//it's for column
+        if(sym[i]==ch && sym[i+3]==ch&&sym[i+6]==ch){
+            printf("the Winner is : %c",ch);return 1;
+        }
+    if(sym[0]==ch && sym[4]==ch&&sym[8]==ch){
+            printf("the Winner is : %c",ch);return 1;
+        }
+    else if(sym[2]==ch && sym[4]==ch && sym[6]==ch){
+            printf("the Winner is : %c",ch);return 1;
+        }
+    else if(count==8){
+        printf("the Game is DRAW");
+        return 1;
+    }else return 0;
+}
+
 struct myDataType inputvalue(char sym[9],int count){
     char value;
     int i;
